@@ -1,23 +1,39 @@
 import styled from "@emotion/styled"
 
-const Select = styled.select`
-    width: 12rem;
+const Container = styled.div`
+    display: flex;
+`
+
+const Select = styled.div`
+    width: 9rem;
     margin: 1.5625rem 1.5625rem;
     padding: 1.25rem .625rem;
     outline: none;
     border: none;
     border-radius: .3125rem;
+    background-color: #fff;
     box-shadow: 0px 5px 10px -7px rgba(0,0,0,0.75);
+`
+
+const Title = styled.h4`
+    margin: 0;
+    text-align: center;
+    font-weight: 600;
 `
 
 
 export const Filter = () => {
     return (
-        <form>
+        <Container>
             <Select>
-                <option value="continents">Continent</option>
-                <option value="language">Language</option>
+                <Title>Continent</Title>
             </Select>
-        </form>
+
+            <Select>
+                <Title>Language</Title>
+            </Select>
+        </Container>
+
+
     )
 }
