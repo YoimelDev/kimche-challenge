@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client"
 
-const LIST_CONTINENTS = gql`
+export const LIST_CONTINENTS = gql`
 	{
 		continents {
 			name
@@ -8,7 +8,7 @@ const LIST_CONTINENTS = gql`
 	}
 `
 
-const LIST_LANGUAGES = gql`
+export const LIST_LANGUAGES = gql`
 	{
 		languages {
 			name
@@ -16,7 +16,7 @@ const LIST_LANGUAGES = gql`
 	}
 `
 
-const LIST_COUNTRIES = gql`
+export const LIST_COUNTRIES = gql`
 	{
 		countries {
 			name
