@@ -3,11 +3,13 @@ import styled from "@emotion/styled"
 
 const Container = styled.div`
     display: flex;
+    gap: 1.5625rem;
+    width: min(85%, 75rem);
+    margin: 1.5625rem auto;
 `
 
 const Select = styled.div`
     width: 9rem;
-    margin: 1.5625rem 1.5625rem;
     padding: 1.25rem .625rem;
     outline: none;
     border: none;
