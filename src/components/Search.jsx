@@ -1,10 +1,5 @@
 import styled from "@emotion/styled"
 
-const Form = styled.form`
-    width: min(85%, 75rem);
-    margin: 1.875rem auto;
-`
-
 const InputSearch = styled.input`
     width: 100%;
     padding: 1.25rem .9375rem;
@@ -44,8 +39,7 @@ export const Search = () => {
     }
 
     return (
-
-        <Form
+        <form
             onSubmit={handleSubmit}
         >
             <FormContent>
@@ -64,6 +58,6 @@ export const Search = () => {
                     </svg>
                 </ButtonSubmit>
             </FormContent>
-        </Form>
+        </form>
     )
 }
