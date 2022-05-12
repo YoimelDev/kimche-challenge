@@ -1,15 +1,22 @@
 import styled from "@emotion/styled"
 
 const Form = styled.form`
-    margin: 1.875rem 1.5625rem;
-    box-shadow: 0px 5px 10px -7px rgba(0,0,0,0.75);
+    width: min(85%, 75rem);
+    margin: 1.875rem auto;
 `
 
 const InputSearch = styled.input`
-    width: 100%;    
+    width: 100%;
     padding: 1.25rem .9375rem;
+    padding-left: 5rem;
+    outline: none;
     border: none;
     border-radius: .3125rem;
+    box-shadow: 0px 5px 10px -7px rgba(0,0,0,0.75);
+
+    @media (min-width: 1024px) {
+        max-width: 37.5rem;
+     }
 `
 
 const FormContent = styled.div`
@@ -22,8 +29,12 @@ const ButtonSubmit = styled.button`
     left: 1.25rem;
     height: 100%;
     width: 3.125rem;
-    background-color: #fff;
+    background-color: transparent;
     border: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 `
 
 export const Search = () => {
@@ -38,7 +49,10 @@ export const Search = () => {
             onSubmit={handleSubmit}
         >
             <FormContent>
-                <InputSearch type="search" />
+                <InputSearch
+                    type="search"
+                    placeholder="Search for a country..."
+                />
 
                 <ButtonSubmit
                     type="submit"
