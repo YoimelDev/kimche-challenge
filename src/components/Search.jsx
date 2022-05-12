@@ -1,5 +1,9 @@
 import styled from "@emotion/styled"
 
+const Form = styled.form`
+    flex: 1;
+`
+
 const InputSearch = styled.input`
     width: 100%;
     padding: 1.25rem .9375rem;
@@ -10,7 +14,7 @@ const InputSearch = styled.input`
     box-shadow: 0px 5px 10px -7px rgba(0,0,0,0.75);
 
     @media (min-width: 1024px) {
-        max-width: 37.5rem;
+        max-width: 30rem;
      }
 `
 
