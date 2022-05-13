@@ -13,7 +13,7 @@ export const Continents = ({ continents }) => {
     const { data, error, loading } = useCountries()
 
     return (
-        <Section>
+        <>
             {continents.map(({ name, code }) => {
                 return (
                     <Section key={code}>
@@ -30,6 +30,6 @@ export const Continents = ({ continents }) => {
                     </Section>
                 )
             })}
-        </Section>
+        </>
     )
 }

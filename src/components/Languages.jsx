@@ -13,7 +13,7 @@ export const Languages = ({ languages }) => {
     const { data, error, loading } = useCountries()
 
     return (
-        <Section>
+        <>
             {languages.map(({ name, code }) => {
                 return (
                     <Section key={code}>
@@ -30,6 +30,6 @@ export const Languages = ({ languages }) => {
                     </Section>
                 )
             })}
-        </Section>
+        </>
     )
 }
