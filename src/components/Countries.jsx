@@ -4,6 +4,7 @@ import { useState } from "react"
 const CountriesContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-items: stretch;
     gap: 1.25rem;
 `
 
