@@ -44,7 +44,7 @@ export const Search = ({ setSearchCountry, searchCountry }) => {
     }
 
     return (
-        <form
+        <Form
             onSubmit={handleSubmit}
         >
             <FormContent>
@@ -65,6 +65,6 @@ export const Search = ({ setSearchCountry, searchCountry }) => {
                     </svg>
                 </ButtonSubmit>
             </FormContent>
-        </form>
+        </Form>
     )
 }
