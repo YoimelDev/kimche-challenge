@@ -50,7 +50,17 @@ export const Countries = () => {
 
     return (
         <Container>
-            <Section>
+
+            {/* {
+                data.continents.map(({ name, code }) => {
+                    return (
+                        <Section key={code}>
+                            <h2>{name}</h2>
+                        </Section>
+                    )
+                })
+            } */}
+            {/* <Section>
                 <h2>South America</h2>
 
                 <CountriesContainer>
@@ -67,7 +77,7 @@ export const Countries = () => {
                         </CountryCardInfo>
                     </CountryCard>
                 </CountriesContainer>
-            </Section>
+            </Section> */}
         </Container>
     )
 }
