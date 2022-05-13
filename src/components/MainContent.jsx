@@ -1,4 +1,6 @@
 import styled from "@emotion/styled"
+import { useContinents } from "../graphql/custom-hooks"
+import { Continents } from "./Continents"
 
 const Container = styled.div`
     width: min(85%, 75rem);
@@ -6,9 +8,12 @@ const Container = styled.div`
 `
 
 export const MainContent = () => {
+
+    const { data, error, loading } = useContinents()
+
     return (
         <Container>
-            <h2>Main</h2>
+            <Continents continents={data.continents} />
         </Container>
     )
 }
