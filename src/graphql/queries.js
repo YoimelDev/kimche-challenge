@@ -4,6 +4,7 @@ export const LIST_CONTINENTS = gql`
 	{
 		continents {
 			name
+			code
 		}
 	}
 `
@@ -12,6 +13,7 @@ export const LIST_LANGUAGES = gql`
 	{
 		languages {
 			name
+			code
 		}
 	}
 `
