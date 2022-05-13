@@ -3,6 +3,7 @@ import styled from "@emotion/styled"
 import { Countries } from "./components/Countries"
 import { Filter } from "./components/Filter"
 import { Header } from "./components/Header"
+import { MainContent } from "./components/MainContent"
 import { Search } from "./components/Search"
 
 const Container = styled.div`
@@ -30,7 +31,7 @@ function App() {
         <Filter />
       </Container>
 
-      <Countries />
+      <MainContent />
     </>
   )
 }
