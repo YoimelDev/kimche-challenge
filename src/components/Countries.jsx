@@ -1,9 +1,7 @@
 import styled from "@emotion/styled"
+import { useContinents } from "../graphql/custom-hooks"
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
     width: min(85%, 75rem);
     margin: 0 auto;
 `
@@ -35,73 +33,41 @@ const CountryCardInfo = styled.div`
     }
 `
 
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+`
+
+const CountriesContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+`
+
 export const Countries = () => {
+
+    const { data, error, loading } = useContinents()
+
     return (
         <Container>
-            <CountryCard>
-                <div>
-                    <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
-                </div>
+            <Section>
+                <h2>South America</h2>
 
-                <CountryCardInfo>
-                    <h2>Chile</h2>
-                    <p>Capital: <span>Santiago</span></p>
-                    <p>Currency: <span>CLF, CLP</span></p>
-                    <p>Phone: <span>+56</span></p>
-                </CountryCardInfo>
-            </CountryCard>
+                <CountriesContainer>
+                    <CountryCard>
+                        <div>
+                            <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
+                        </div>
 
-            <CountryCard>
-                <div>
-                    <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
-                </div>
-
-                <CountryCardInfo>
-                    <h2>Chile</h2>
-                    <p>Capital: <span>Santiago</span></p>
-                    <p>Currency: <span>CLF, CLP</span></p>
-                    <p>Phone: <span>+56</span></p>
-                </CountryCardInfo>
-            </CountryCard>
-
-            <CountryCard>
-                <div>
-                    <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
-                </div>
-
-                <CountryCardInfo>
-                    <h2>Chile</h2>
-                    <p>Capital: <span>Santiago</span></p>
-                    <p>Currency: <span>CLF, CLP</span></p>
-                    <p>Phone: <span>+56</span></p>
-                </CountryCardInfo>
-            </CountryCard>
-
-            <CountryCard>
-                <div>
-                    <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
-                </div>
-
-                <CountryCardInfo>
-                    <h2>Chile</h2>
-                    <p>Capital: <span>Santiago</span></p>
-                    <p>Currency: <span>CLF, CLP</span></p>
-                    <p>Phone: <span>+56</span></p>
-                </CountryCardInfo>
-            </CountryCard>
-
-            <CountryCard>
-                <div>
-                    <img src="https://flagcdn.com/w320/cl.png" alt="Flag" />
-                </div>
-
-                <CountryCardInfo>
-                    <h2>Chile</h2>
-                    <p>Capital: <span>Santiago</span></p>
-                    <p>Currency: <span>CLF, CLP</span></p>
-                    <p>Phone: <span>+56</span></p>
-                </CountryCardInfo>
-            </CountryCard>
+                        <CountryCardInfo>
+                            <h2>Chile</h2>
+                            <p>Capital: <span>Santiago</span></p>
+                            <p>Currency: <span>CLF, CLP</span></p>
+                            <p>Phone: <span>+56</span></p>
+                        </CountryCardInfo>
+                    </CountryCard>
+                </CountriesContainer>
+            </Section>
         </Container>
     )
 }
