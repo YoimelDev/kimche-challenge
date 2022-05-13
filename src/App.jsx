@@ -1,6 +1,6 @@
 
 import styled from "@emotion/styled"
-import { Countries } from "./components/Countries"
+import { useState } from "react"
 import { Filter } from "./components/Filter"
 import { Header } from "./components/Header"
 import { MainContent } from "./components/MainContent"
@@ -21,6 +21,9 @@ const Container = styled.div`
 `
 
 function App() {
+
+  const [filter, setFilter] = useState('continent')
+
   return (
     <>
       <Header />
@@ -28,10 +31,10 @@ function App() {
       <Container>
         <Search />
 
-        <Filter />
+        <Filter setFilter={setFilter} filter={filter} />
       </Container>
 
-      <MainContent />
+      <MainContent filter={filter} />
     </>
   )
 }

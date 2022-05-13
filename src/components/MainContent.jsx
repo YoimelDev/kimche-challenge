@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
-import { useContinents } from "../graphql/custom-hooks"
+import { useContinents, useLanguages } from "../graphql/custom-hooks"
 import { Continents } from "./Continents"
+import { Languages } from "./Languages"
 import { Spinner } from "./Spinner"
 
 const Container = styled.div`
@@ -8,16 +9,19 @@ const Container = styled.div`
     margin: 0 auto;
 `
 
-export const MainContent = () => {
+export const MainContent = ({ filter }) => {
 
     const { data, error, loading } = useContinents()
+    const { data: dataL, error: errorL, loading: loadingL } = useLanguages()
 
     return (
         <Container>
             {
-                loading
+                loading || loadingL
                     ? <Spinner />
-                    : <Continents continents={data.continents} />
+                    : filter === 'continent'
+                        ? <Continents continents={data.continents} />
+                        : <Languages languages={dataL.languages} />
             }
         </Container>
     )

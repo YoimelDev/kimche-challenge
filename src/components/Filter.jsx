@@ -39,22 +39,19 @@ const Title = styled.h4`
     text-align: center;
     font-weight: 600;
 `
-export const Filter = () => {
-
-    const [isActive, setIsActive] = useState('continent')
-
+export const Filter = ({ setFilter, filter }) => {
     return (
         <Container>
             <Select
-                onClick={() => setIsActive('continent')}
-                $mode={isActive === 'continent' ? 'active' : ''}
+                onClick={() => setFilter('continent')}
+                $mode={filter === 'continent' ? 'active' : ''}
             >
                 <Title>Continent </Title>
             </Select>
 
             <Select
-                onClick={() => setIsActive('language')}
-                $mode={isActive === 'language' ? 'active' : ''}
+                onClick={() => setFilter('language')}
+                $mode={filter === 'language' ? 'active' : ''}
             >
                 <Title>Language</Title>
             </Select>
