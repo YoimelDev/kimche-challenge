@@ -8,7 +8,7 @@ const Section = styled.section`
     flex-direction: column;
 `
 
-export const Continents = ({ continents }) => {
+export const Continents = ({ continents, searchCountry }) => {
 
     const { data, error, loading } = useCountries()
 
@@ -26,6 +26,7 @@ export const Continents = ({ continents }) => {
                                     countries={data.countries}
                                     continentName={name}
                                     lenguageName={false}
+                                    searchCountry={searchCountry}
                                 />
                         }
                     </Section>

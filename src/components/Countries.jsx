@@ -39,7 +39,7 @@ const CountryCardInfo = styled.div`
     }
 `
 
-export const Countries = ({ countries, continentName, lenguageName }) => {
+export const Countries = ({ countries, continentName, lenguageName, searchCountry }) => {
 
     const [countriesByContinent, setCountriesByContinent] = useState(
         countries.filter(({ continent }) => continent.name === continentName)

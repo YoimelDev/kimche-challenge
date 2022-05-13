@@ -35,7 +35,7 @@ function App() {
         <Filter setFilter={setFilter} filter={filter} />
       </Container>
 
-      <MainContent filter={filter} />
+      <MainContent filter={filter} searchCountry={searchCountry} />
     </>
   )
 }

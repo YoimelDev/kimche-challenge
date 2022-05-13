@@ -9,7 +9,7 @@ const Container = styled.div`
     margin: 0 auto;
 `
 
-export const MainContent = ({ filter }) => {
+export const MainContent = ({ filter, searchCountry }) => {
 
     const { data, error, loading } = useContinents()
     const { data: dataL, error: errorL, loading: loadingL } = useLanguages()
@@ -20,8 +20,8 @@ export const MainContent = ({ filter }) => {
                 loading || loadingL
                     ? <Spinner />
                     : filter === 'continent'
-                        ? <Continents continents={data.continents} />
-                        : <Languages languages={dataL.languages} />
+                        ? <Continents continents={data.continents} searchCountry={searchCountry} />
+                        : <Languages languages={dataL.languages} searchCountry={searchCountry} />
             }
         </Container>
     )
