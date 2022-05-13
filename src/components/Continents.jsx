@@ -25,6 +25,7 @@ export const Continents = ({ continents }) => {
                                 : <Countries
                                     countries={data.countries}
                                     continentName={name}
+                                    lenguageName={false}
                                 />
                         }
                     </Section>

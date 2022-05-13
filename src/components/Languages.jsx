@@ -24,6 +24,7 @@ export const Languages = ({ languages }) => {
                                 ? <Spinner />
                                 : <Countries
                                     countries={data.countries}
+                                    continentName={false}
                                     lenguageName={name}
                                 />
                         }

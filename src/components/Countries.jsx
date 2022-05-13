@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { useState } from "react"
 
 const CountriesContainer = styled.div`
     display: grid;
@@ -37,30 +38,57 @@ const CountryCardInfo = styled.div`
     }
 `
 
-export const Countries = ({ countries, continentName }) => {
+export const Countries = ({ countries, continentName, lenguageName }) => {
+
+    const [countriesByContinent, setCountriesByContinent] = useState(
+        countries.filter(({ continent }) => continent.name === continentName)
+    )
+
+    const [countriesByLanguage, setCountriesByLanguage] = useState(
+        countries.filter(({ languages }) => languages.find(({ name }) => name === lenguageName))
+    )
+
     return (
         <CountriesContainer>
-            {countries.map(({ name, code, phone, capital, currency, continent }) => {
-                return (
-                    continentName === continent.name
-                        ? <CountryCard
-                            key={code}
-                        >
-                            <div>
-                                <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
-                            </div>
+            {
+                continentName
+                    ? countriesByContinent.map(({ name, code, phone, capital, currency }) => {
+                        return (
+                            <CountryCard
+                                key={code}
+                            >
+                                <div>
+                                    <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
+                                </div>
 
-                            <CountryCardInfo>
-                                <h2>{name}</h2>
-                                <p>Capital: <span>{capital}</span></p>
-                                <p>Currency: <span>{currency}</span></p>
-                                <p>Phone: <span>+{phone}</span></p>
-                            </CountryCardInfo>
-                        </CountryCard>
-                        : ''
+                                <CountryCardInfo>
+                                    <h2>{name}</h2>
+                                    <p>Capital: <span>{capital}</span></p>
+                                    <p>Currency: <span>{currency}</span></p>
+                                    <p>Phone: <span>+{phone}</span></p>
+                                </CountryCardInfo>
+                            </CountryCard>
+                        )
+                    })
+                    : countriesByLanguage.map(({ name, code, phone, capital, currency }) => {
+                        return (
+                            <CountryCard
+                                key={code}
+                            >
+                                <div>
+                                    <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
+                                </div>
 
-                )
-            })}
+                                <CountryCardInfo>
+                                    <h2>{name}</h2>
+                                    <p>Capital: <span>{capital}</span></p>
+                                    <p>Currency: <span>{currency}</span></p>
+                                    <p>Phone: <span>+{phone}</span></p>
+                                </CountryCardInfo>
+                            </CountryCard>
+                        )
+                    })
+            }
         </CountriesContainer>
     )
 }
