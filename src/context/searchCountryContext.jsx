@@ -27,7 +27,6 @@ export const SearchCountryProvider = ({ children }) => {
 
     const searchContext = useMemo(() => ({
         setCountry: (payload) => {
-            console.log('Funciona xd');
             dispatch({ type: 'SET_COUNTRY', payload })
         },
     }), [])
