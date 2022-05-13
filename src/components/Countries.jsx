@@ -1,4 +1,6 @@
 import styled from "@emotion/styled"
+import { useContext } from "react"
+import { searchCountryContext } from "../context/searchCountryContext"
 
 const CountriesContainer = styled.div`
     display: grid;
@@ -38,7 +40,9 @@ const CountryCardInfo = styled.div`
     }
 `
 
-export const Countries = ({ countries, continentName, lenguageName, searchCountry }) => {
+export const Countries = ({ countries, continentName, lenguageName }) => {
+
+    const { searchCountry } = useContext(searchCountryContext)
 
     const showCountriesByContinent = () => {
         let countriesByContinent = countries.filter(({ continent }) => continent.name === continentName)

@@ -5,6 +5,7 @@ import { Filter } from "./components/Filter"
 import { Header } from "./components/Header"
 import { MainContent } from "./components/MainContent"
 import { Search } from "./components/Search"
+import { SearchCountryProvider } from "./context/searchCountryContext"
 
 const Container = styled.div`
   display: flex;
@@ -23,20 +24,19 @@ const Container = styled.div`
 function App() {
 
   const [filter, setFilter] = useState('continent')
-  const [searchCountry, setSearchCountry] = useState('')
 
   return (
-    <>
+    <SearchCountryProvider>
       <Header />
 
       <Container>
-        <Search setSearchCountry={setSearchCountry} searchCountry={searchCountry} />
+        <Search />
 
         <Filter setFilter={setFilter} filter={filter} />
       </Container>
 
-      <MainContent filter={filter} searchCountry={searchCountry} />
-    </>
+      <MainContent filter={filter} />
+    </SearchCountryProvider>
   )
 }
 

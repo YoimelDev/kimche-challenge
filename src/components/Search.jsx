@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { searchCountryContext } from "../context/searchCountryContext"
 
 const Form = styled.form`
     flex: 1;
@@ -37,11 +38,13 @@ const ButtonSubmit = styled.button`
     }
 `
 
-export const Search = ({ setSearchCountry, searchCountry }) => {
+export const Search = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
     }
+
+    const { searchCountry, setCountry } = useContext(searchCountryContext)
 
     return (
         <Form
@@ -52,7 +55,7 @@ export const Search = ({ setSearchCountry, searchCountry }) => {
                     type="search"
                     placeholder="Search for a country..."
                     value={searchCountry}
-                    onChange={e => setSearchCountry(e.target.value)}
+                    onChange={e => setCountry(e.target.value)}
                 />
 
                 <ButtonSubmit
