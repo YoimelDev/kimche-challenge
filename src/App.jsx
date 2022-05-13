@@ -23,13 +23,14 @@ const Container = styled.div`
 function App() {
 
   const [filter, setFilter] = useState('continent')
+  const [searchCountry, setSearchCountry] = useState('')
 
   return (
     <>
       <Header />
 
       <Container>
-        <Search />
+        <Search setSearchCountry={setSearchCountry} searchCountry={searchCountry} />
 
         <Filter setFilter={setFilter} filter={filter} />
       </Container>
