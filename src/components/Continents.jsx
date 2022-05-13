@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import { useCountries } from "../graphql/custom-hooks"
 import { Countries } from "./Countries"
+import { Spinner } from "./Spinner"
 
 const Section = styled.section`
     display: flex;
@@ -18,10 +19,14 @@ export const Continents = ({ continents }) => {
                     <Section key={code}>
                         <h2>{name}</h2>
 
-                        <Countries
-                            countries={data.countries}
-                            continentName={name}
-                        />
+                        {
+                            loading
+                                ? <Spinner />
+                                : <Countries
+                                    countries={data.countries}
+                                    continentName={name}
+                                />
+                        }
                     </Section>
                 )
             })}

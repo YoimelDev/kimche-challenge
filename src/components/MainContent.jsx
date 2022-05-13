@@ -14,10 +14,11 @@ export const MainContent = () => {
 
     return (
         <Container>
-
-            {loading && <Spinner />}
-
-            {data && <Continents continents={data.continents} />}
+            {
+                loading
+                    ? <Spinner />
+                    : <Continents continents={data.continents} />
+            }
         </Container>
     )
 }
