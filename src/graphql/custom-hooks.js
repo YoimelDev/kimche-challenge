@@ -1,20 +1,20 @@
-import { useQuery } from "@apollo/client";
-import { LIST_CONTINENTS, LIST_COUNTRIES, LIST_LANGUAGES } from "./queries";
+import { useQuery } from '@apollo/client'
+import { LIST_CONTINENTS, LIST_COUNTRIES, LIST_LANGUAGES } from './queries'
 
 export const useContinents = () => {
-    const result = useQuery(LIST_CONTINENTS)
+	const result = useQuery(LIST_CONTINENTS)
 
-    return result
+	return result
 }
 
 export const useLanguages = () => {
-    const result = useQuery(LIST_LANGUAGES)
+	const result = useQuery(LIST_LANGUAGES)
 
-    return result
+	return result
 }
 
 export const useCountries = () => {
-    const result = useQuery(LIST_COUNTRIES)
+	const result = useQuery(LIST_COUNTRIES)
 
-    return result
+	return result
 }
