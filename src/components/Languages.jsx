@@ -47,12 +47,11 @@ export const Languages = ({ languages }) => {
 	return (
 		<>
 			{languages.map(({ name, code }) => {
-				return <Section
-					key={code}
-					layout
-				>
-					{showLanguage(name)}
-				</Section>
+				return (
+					<Section key={code} layout>
+						{showLanguage(name)}
+					</Section>
+				)
 			})}
 		</>
 	)

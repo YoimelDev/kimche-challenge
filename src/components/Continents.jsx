@@ -47,12 +47,11 @@ export const Continents = ({ continents }) => {
 	return (
 		<>
 			{continents.map(({ name, code }) => {
-				return <Section
-					key={code}
-					layout
-				>
-					{showContinent(name)}
-				</Section>
+				return (
+					<Section key={code} layout>
+						{showContinent(name)}
+					</Section>
+				)
 			})}
 		</>
 	)
