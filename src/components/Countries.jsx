@@ -1,6 +1,4 @@
 import styled from "@emotion/styled"
-import { useContext } from "react"
-import { searchCountryContext } from "../context/searchCountryContext"
 
 const CountriesContainer = styled.div`
     display: grid;
@@ -18,10 +16,6 @@ const CountryCard = styled.div`
     background-color: #fff;
     border-radius: .3125rem;
     overflow: hidden;
-`
-
-const CountryImg = styled.img`
-    width: 100%;
 `
 
 const CountryCardInfo = styled.div`
@@ -43,78 +37,28 @@ const CountryCardInfo = styled.div`
     }
 `
 
-export const Countries = ({ countries, continentName, lenguageName }) => {
-
-    const { searchCountry } = useContext(searchCountryContext)
-
-    const showCountriesByContinent = () => {
-        let countriesByContinent = countries.filter(({ continent }) => continent.name === continentName)
-
-        if (searchCountry !== '') {
-            countriesByContinent = countriesByContinent.filter(({ name }) =>
-                name.toLowerCase().includes(searchCountry.toLowerCase())
-            )
-        }
-
-        return (
-            countriesByContinent.map(({ name, code, phone, capital, currency }) => {
-                return (
-                    <CountryCard
-                        key={code}
-                    >
-                        <div>
-                            <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
-                        </div>
-
-                        <CountryCardInfo>
-                            <h2>{name}</h2>
-                            <p>Capital: <span>{capital}</span></p>
-                            <p>Currency: <span>{currency}</span></p>
-                            <p>Phone: <span>+{phone}</span></p>
-                        </CountryCardInfo>
-                    </CountryCard>
-                )
-            })
-        )
-    }
-
-    const showCountriesByLanguage = () => {
-        let countriesByLanguage = countries.filter(({ languages }) => languages.find(({ name }) => name === lenguageName))
-
-        if (searchCountry !== '') {
-            countriesByLanguage = countriesByLanguage.filter(({ name }) =>
-                name.toLowerCase().includes(searchCountry.toLowerCase())
-            )
-        }
-
-        return (
-            countriesByLanguage.map(({ name, code, phone, capital, currency }) => {
-                return (
-                    <CountryCard
-                        key={code}
-                    >
-                        <div>
-                            <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
-                        </div>
-
-                        <CountryCardInfo>
-                            <h2>{name}</h2>
-                            <p>Capital: <span>{capital}</span></p>
-                            <p>Currency: <span>{currency}</span></p>
-                            <p>Phone: <span>+{phone}</span></p>
-                        </CountryCardInfo>
-                    </CountryCard>
-                )
-            })
-        )
-    }
-
+export const Countries = ({ countries }) => {
     return (
         <CountriesContainer>
             {
-                continentName
-                    ? showCountriesByContinent()
-                    : showCountriesByLanguage()
+                countries.map(({ name, code, phone, capital, currency }) => {
+                    return (
+                        <CountryCard
+                            key={code}
+                        >
+                            <div>
+                                <img src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`} alt="Flag" />
+                            </div>
+
+                            <CountryCardInfo>
+                                <h2>{name}</h2>
+                                <p>Capital: <span>{capital}</span></p>
+                                <p>Currency: <span>{currency}</span></p>
+                                <p>Phone: <span>+{phone}</span></p>
+                            </CountryCardInfo>
+                        </CountryCard>
+                    )
+                })
             }
         </CountriesContainer>
     )
