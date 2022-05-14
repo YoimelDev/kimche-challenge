@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { searchCountryContext } from '../context/searchCountryContext'
 import { useCountries } from '../graphql/custom-hooks'
 import { Countries } from './Countries'
 import { Spinner } from './Spinner'
 
-const Section = styled.section`
+const Section = styled(motion.section)`
 	display: flex;
 	flex-direction: column;
 `
@@ -35,7 +36,7 @@ export const Languages = ({ languages }) => {
 
 			return (
 				<>
-					<h2>{LanguageName}</h2>
+					<motion.h2 layout>{LanguageName}</motion.h2>
 
 					{<Countries countries={countriesByLanguage} />}
 				</>
@@ -46,7 +47,12 @@ export const Languages = ({ languages }) => {
 	return (
 		<>
 			{languages.map(({ name, code }) => {
-				return <Section key={code}>{showLanguage(name)}</Section>
+				return <Section
+					key={code}
+					layout
+				>
+					{showLanguage(name)}
+				</Section>
 			})}
 		</>
 	)

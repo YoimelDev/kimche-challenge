@@ -1,4 +1,18 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
+
+const variants = {
+	hidden: {
+		opacity: 0
+	},
+	show: ({ delay }) => ({
+		opacity: 1,
+		transition: {
+			delay,
+			duration: 1
+		}
+	})
+}
 
 const CountriesContainer = styled.div`
 	display: grid;
@@ -7,7 +21,7 @@ const CountriesContainer = styled.div`
 	gap: 1.25rem;
 `
 
-const CountryCard = styled.div`
+const CountryCard = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -41,9 +55,15 @@ const CountryCardInfo = styled.div`
 export const Countries = ({ countries }) => {
 	return (
 		<CountriesContainer>
-			{countries.map(({ name, code, phone, capital, currency }) => {
+			{countries.map(({ name, code, phone, capital, currency }, index) => {
 				return (
-					<CountryCard key={code}>
+					<CountryCard
+						key={code}
+						custom={{ delay: (index + 1) * 0.2 }}
+						initial="hidden"
+						animate="show"
+						variants={variants}
+					>
 						<div>
 							<img
 								src={`https://flagcdn.com/w320/${code.toLowerCase()}.webp`}

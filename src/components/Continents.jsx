@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
+import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import { searchCountryContext } from '../context/searchCountryContext'
 import { useCountries } from '../graphql/custom-hooks'
 import { Countries } from './Countries'
 import { Spinner } from './Spinner'
 
-const Section = styled.section`
+const Section = styled(motion.section)`
 	display: flex;
 	flex-direction: column;
 `
@@ -35,7 +36,7 @@ export const Continents = ({ continents }) => {
 
 			return (
 				<>
-					<h2>{name}</h2>
+					<motion.h2 layout>{name}</motion.h2>
 
 					{<Countries countries={countriesByContinent} />}
 				</>
@@ -46,7 +47,12 @@ export const Continents = ({ continents }) => {
 	return (
 		<>
 			{continents.map(({ name, code }) => {
-				return <Section key={code}>{showContinent(name)}</Section>
+				return <Section
+					key={code}
+					layout
+				>
+					{showContinent(name)}
+				</Section>
 			})}
 		</>
 	)
