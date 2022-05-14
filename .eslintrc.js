@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'standard'
   ],
   parserOptions: {
@@ -18,6 +19,5 @@ module.exports = {
     'react'
   ],
   rules: {
-    "indent": ["error", 2]
   }
 }
