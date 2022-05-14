@@ -10,6 +10,9 @@ const CountriesContainer = styled.div`
 `
 
 const CountryCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     max-width: 20rem;
     background-color: #fff;
